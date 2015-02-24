@@ -29,8 +29,9 @@ The next problem that I encountered was that the colors were not cooperating wit
 
 Even with the slight functionality that I was getting, I could see that running edge detection on an un-softened, illuminated object would accentuate the polygons. Thus I made the choice of repurposing my edge detection function into a function that would display contour lines. I did this by weighting the colors such that green was the most important and red the least. I chose this weighting because I wanted the countours to mostly track the light source and how the light is projected onto the shape.
 
-![](https://github.com/SKrupa/E190u-Lab4/blob/master/wire%20frame%20side.png?raw=true)
-
+![Side of the Contoured Model](https://github.com/SKrupa/E190u-Lab4/blob/master/wire%20frame%20side.png?raw=true)
+![Top of the Contoured Model](https://github.com/SKrupa/E190u-Lab4/blob/master/wire%20frame%20top.png?raw=true)
+![Bottom of the Contoured Model](https://github.com/SKrupa/E190u-Lab4/blob/master/wire%20frame%20bottom.png?raw=true)
 
 ##Results and Discussion
 
