@@ -4,8 +4,8 @@ The purpose of this lab was to use CUDA to post-process an image on the GPU. Thi
 
 I chose to implement two functions, one which would detect the edges of the image, and the other which would add motion blur to the animation.
 
-##Edge Detection
-#Design Methodology
+#Edge Detection
+##Design Methodology
 
 The first thing that I tried to implement was edge detection since this can be achieved using a simple convolution. Since the code provided already had the architecture in place for convolutions, it seemed like it would be fairly trivial to implement a derivative convolution. I decided to implement the Sobel convolution by first convolving the image with the horizontal derivitive and then the vertical derivitive. The specific kernels I used can be seen below.
 
@@ -27,8 +27,16 @@ I found that when running these convolutions one after the other, only the most 
 
 The next problem
 
-#Testing Methodology
 
-#Results and Discussion
+##Testing Methodology
+
+##Results and Discussion
+
+#Motion Blur
+##Design Methodology
+
+##Testing Methodology
+
+#3Results and Discussion
 
 #Conclusions
