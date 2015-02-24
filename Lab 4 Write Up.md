@@ -35,11 +35,35 @@ Even with the slight functionality that I was getting, I could see that running 
 
 ##Results and Discussion
 
+The end result actually looks fairly good even though it is not what was intended. As can be seen in the images above, the filter evokes the feel of some existing effects that produce a green wireframe. This could be applied to a game to produce a fairly unique visual that would still be familiar to the player.
+
+A possible improvement to this filter while still keeping with the aesthetic design would be to either remove or increase the amount by which polygons are accented. Currently, the polygons are only accented in direct light which makes it go from a blocky representation to smooth contour lines abruptly. Removing all polygon accents would create a much cleaner shape while increasing the accents would evoke an even stronger wire frame feeling.
+
 #Motion Blur
 ##Design Methodology
 
-##Testing Methodology
+To implement motion blur, I actually used a bug in my code from the edge detection as a starting point. At some point I had written "+=" instead of "=" which was giving my a bizarre multicolored trail behind the teapot. I noticed that by scaling the image properly instead of overflowing the values, once could do this to implement motion blur. 
+
+In order to become more familiar with CUDA, instead of just using the "+=" operator, I made an array of uchar4's in the GPU's memory where I stored the entire motion blur tail. This tail was simply an exponential decay of all the previous frames of the animation. This scaling was adjustable so it generalized to something like this:
+
+Blur[n] = (c1 * Frame[n-1] + c2 * Blur[n-1])/(c1 + c2)
+
+the ratio of c1 to c2 determines how quickly the tail of the blur drops of.
+
+This blur was then added to the display image using another scaling as follows:
+
+DisplayedImage = (c3 * Frame[n] + c4 * Blur[n]) / (c3 + c4)
+
+This behaves identically as the previous function, and the two can be simplified into a single equation removing the need to store the blur seperately, but the one benefit of this is that the intensity of the blur and the length of the tail can be controlled seperately. For example you could have a long, dull tail or a short, bright tail, which would not be possible if there were not a seperate array to store blur values in.
+
 
 ##Results and Discussion
+
+![No blur](https://github.com/SKrupa/E190u-Lab4/blob/master/no%20blur%201.png?raw=true)
+![Low blur length and intensity](https://github.com/SKrupa/E190u-Lab4/blob/master/blur%201.png?raw=true)
+![Medium blur length and intensity](https://github.com/SKrupa/E190u-Lab4/blob/master/blur%202.png?raw=true)
+![High blur length and intensity](https://github.com/SKrupa/E190u-Lab4/blob/master/blur%203.png?raw=true)
+
+This architecture could be expanded further than just a single stored blur array. With each added array, a degree of freedom could be added to the blur which would allow more custimization than just intensity and length. Fore example, the exponential drop off could be modified into a square drop off by adding a second blur which would be subracted rather than added.
 
 #Conclusions
