@@ -68,6 +68,14 @@ Medium blur length and intensity
 ![High blur length and intensity](https://github.com/SKrupa/E190u-Lab4/blob/master/blur%203.png?raw=true)
 High blur length and intensity
 
+The blur works as intended, showing a clear trail behind quickly moving parts of the object while keeping slower moving parts sharp. There also seems to be a minimal performance hit when the motion blur is turned on.
+
 This architecture could be expanded further than just a single stored blur array. With each added array, a degree of freedom could be added to the blur which would allow more custimization than just intensity and length. Fore example, the exponential drop off could be modified into a square drop off by adding a second blur which would be subracted rather than added.
 
 #Conclusions
+
+Both post-processing functions successfully take an incoming stream and modify it to change the graphics of the output display. Although the edge detection algorithm does not work as was originally intended, I am satisfied with that I was able to do with it
+
+I spent the most time trying to debug the edge detection, which I spend about 4 hours on. It was fairly productive since it made me dig deeper into the code that I had initially planned to. It also served as a kick start to my motion blur function. The actual initial functionality took about 30 minutes. I spent a further 45 minutes at the end making the edge detection fit better as a contour line detector.
+
+The motion blur algorithm took me about 2 hours to implement and test.
