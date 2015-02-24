@@ -12,6 +12,7 @@ The first thing that I tried to implement was edge detection since this can be a
 | 0  | 0   | 0  |
 | 3  | 10  |  3 |
 
+##* Image
 #Testing Methodology
 
 #Results and Discussion
