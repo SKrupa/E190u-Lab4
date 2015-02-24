@@ -60,9 +60,13 @@ This behaves identically as the previous function, and the two can be simplified
 ##Results and Discussion
 
 ![No blur](https://github.com/SKrupa/E190u-Lab4/blob/master/no%20blur%201.png?raw=true)
+No blur
 ![Low blur length and intensity](https://github.com/SKrupa/E190u-Lab4/blob/master/blur%201.png?raw=true)
+Low blur length and intensity
 ![Medium blur length and intensity](https://github.com/SKrupa/E190u-Lab4/blob/master/blur%202.png?raw=true)
+Medium blur length and intensity
 ![High blur length and intensity](https://github.com/SKrupa/E190u-Lab4/blob/master/blur%203.png?raw=true)
+High blur length and intensity
 
 This architecture could be expanded further than just a single stored blur array. With each added array, a degree of freedom could be added to the blur which would allow more custimization than just intensity and length. Fore example, the exponential drop off could be modified into a square drop off by adding a second blur which would be subracted rather than added.
 
