@@ -25,10 +25,12 @@ The center of the kernel can be set by the user to be either 0 or 1 by pressing 
 
 I found that when running these convolutions one after the other, only the most recent one actually affected the image. This may be due to overwriting memory, but I do not see how that should have been a problem since the threads synced inside the functions. Instead, I had to modify the code to do both convolutions within a single function. I acheived this by taking each convolution individually and then taking the square root of the sum of the squares of each convolution. This is not very desirable since it introduces a square root into every iteration of the function, but it solved the problem.
 
-The next problem
+The next problem that I encountered was that the colors were not cooperating with the edge detection well. I would get blue and green edges in random spaces due to the light source since white light would blend into the red teapot. I tried converting the image to greyscale by setting each subpixel value to 0.2126 R + 0.7152 G + 0.0722 B. This returned a good greyscale image, but the edge detection did not work well on it since a lot of the contrast seemed to be lost in the conversion.
 
+Even with the slight functionality that I was getting, I could see that running edge detection on an un-softened, illuminated object would accentuate the polygons. Thus I made the choice of repurposing my edge detection function into a function that would display contour lines. I did this by weighting the colors such that green was the most important and red the least. I chose this weighting because I wanted the countours to mostly track the light source and how the light is projected onto the shape.
 
-##Testing Methodology
+![](https://github.com/SKrupa/E190u-Lab4/blob/master/wire%20frame%20side.png?raw=true)
+
 
 ##Results and Discussion
 
@@ -37,6 +39,6 @@ The next problem
 
 ##Testing Methodology
 
-#3Results and Discussion
+##Results and Discussion
 
 #Conclusions
